@@ -37,3 +37,15 @@ function sameFrequency(n1, n2) {
 
   return true;
 }
+
+function areThereDuplicates(arguments) {
+  let args = [...arguments]
+  let hash = {};
+  for (let i = 0; i < args.length; i++){
+      hash[args[i]] = (hash[args[i]] || 0) + 1;
+  }
+  for (let key in hash){
+      if(hash[key] > 1) return true;
+  }
+  return false;
+}
