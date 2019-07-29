@@ -22,3 +22,15 @@ function averagePair(arr, n) {
   }
   return false;
 }
+
+function isSubsequence(s1, s2) {
+  let sub = '';
+  let i = 0;
+  for (let j = 0; j < s2.length || i < s1.length; j++) {
+    if (s1[i] === s2[j]) {
+      sub += s1[i];
+      i++;
+    }
+  }
+  return sub.length === s1.length;
+}
