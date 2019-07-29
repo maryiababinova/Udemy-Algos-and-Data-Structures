@@ -26,7 +26,7 @@ function averagePair(arr, n) {
 function isSubsequence(s1, s2) {
   let sub = '';
   let i = 0;
-  for (let j = 0; j < s2.length || i < s1.length; j++) {
+  for (let j = 0; j < s2.length; j++) {
     if (s1[i] === s2[j]) {
       sub += s1[i];
       i++;
