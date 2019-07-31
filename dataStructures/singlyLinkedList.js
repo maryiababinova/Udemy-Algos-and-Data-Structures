@@ -50,6 +50,8 @@ class SinglyLinkedList {
 
     let temp = this.head;
     this.head = this.head.next;
+    this.length--;
+    if (!this.length) this.tail = null;
     return temp;
   }
 }
