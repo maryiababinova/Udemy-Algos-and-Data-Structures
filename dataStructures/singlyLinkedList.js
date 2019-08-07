@@ -75,6 +75,7 @@ class SinglyLinkedList {
     }
     return current;
   }
+
   set(idx, val) {
     let current = this.get(idx);
     if (current) {
@@ -83,6 +84,7 @@ class SinglyLinkedList {
     }
     return false;
   }
+
   insert(idx, val) {
     if (idx < 0 || idx > this.length) return false;
     if (idx === this.length) return !!this.push(val);
@@ -95,5 +97,17 @@ class SinglyLinkedList {
     node.next = tmp;
     this.length++;
     return true;
+  }
+
+  remove(idx) {
+    if (idx < 0 || idx > this.length) return undefined;
+    if (idx === this.length - 1) return this.pop();
+    if (idx === 0) return this.shift();
+
+    let prev = this.get(idx - 1);
+    let removed = prev.next;
+    prev.next = removed.next;
+    this.length--;
+    return removed;
   }
 }
