@@ -72,7 +72,7 @@ class DoublyLinkedList {
   }
 
   get(idx) {
-    if (idx < 0 || idx >= this.length) return null;
+    if (idx < 0 || idx >= this.length) return undefined;
     let count;
     let current;
     if (idx <= this.length / 2) {
@@ -92,5 +92,14 @@ class DoublyLinkedList {
       }
     }
     return current;
+  }
+
+  set(idx, val) {
+    let found = this.get(idx);
+    if (!found) return false;
+    else {
+      found.val = val;
+      return true;
+    }
   }
 }
