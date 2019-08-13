@@ -123,6 +123,7 @@ class DoublyLinkedList {
     if (idx < 0 || idx >= this.length) return undefined;
     if (idx === 0) return this.shift();
     if (idx === this.length - 1) return this.pop();
+
     let node = this.get(idx);
     let prevNode = node.prev;
     let nextNode = node.next;
@@ -133,5 +134,20 @@ class DoublyLinkedList {
     node.prev = null;
     this.length--;
     return node;
+  }
+
+  reverse() {
+    let node = this.tail;
+    this.tail = this.head;
+    this.head = node;
+
+    let nextNode, prevNode;
+    for (let i = 0; i < this.length; i++) {
+      nextNode = node.prev;
+      prevNode = node;
+      prevNode.next = nextNode;
+      node = nextNode;
+    }
+    return this;
   }
 }
