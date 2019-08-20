@@ -22,3 +22,16 @@ const fib = n => {
   if (n <= 2) return 1;
   return fib(n - 2) + fib(n - 1);
 };
+
+const reverse = s => {
+  if (s.length <= 1) return s;
+  return s[s.length - 1] + reverse(s.slice(0, -1));
+};
+
+const isPalindrome = s => {
+  s = s.toLowerCase();
+  if (s.length === 1) return true;
+  if (s.length === 2) return s[0] === s[1];
+  if (s[0] === s[s.length - 1]) return isPalindrome(s.slice(1, -1));
+  return false;
+};
