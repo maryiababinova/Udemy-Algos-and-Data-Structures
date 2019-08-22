@@ -41,3 +41,13 @@ const someRecursive = (arr, cb) => {
   if (cb(arr[0])) return true;
   else return someRecursive(arr.slice(1), cb);
 };
+
+const flatten = arr => {
+  let flattened = [];
+  for (let i = 0; i < arr.length; i++) {
+    let curr = arr[i];
+    if (!Array.isArray(curr)) flattened.push(curr);
+    else flattened = [...flattened, ...flatten(curr)];
+  }
+  return flattened;
+};
