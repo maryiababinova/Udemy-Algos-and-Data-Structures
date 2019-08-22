@@ -35,3 +35,9 @@ const isPalindrome = s => {
   if (s[0] === s[s.length - 1]) return isPalindrome(s.slice(1, -1));
   return false;
 };
+
+const someRecursive = (arr, cb) => {
+  if (!arr.length) return false;
+  if (cb(arr[0])) return true;
+  else return someRecursive(arr.slice(1), cb);
+};
