@@ -6,6 +6,7 @@ const binarySearch = (arr, val) => {
     if (arr[mid] === val) return mid;
     else if (val < arr[mid]) end = mid - 1;
     else if (val > arr[mid]) start = mid + 1;
+    mid = Math.floor((start + end) / 2);
   }
   return -1;
 };
